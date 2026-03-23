@@ -1,0 +1,15 @@
+# This is a template profiles.yml for the teradata_migration dbt project.
+# In practice, this file should be placed in ~/.dbt/profiles.yml on the machine
+# where dbt is executed. Do not commit production credentials to version control.
+
+teradata_migration:
+  target: dev
+  outputs:
+    dev:
+      type: teradata
+      host: "{{ env_var('TD_HOST', '127.0.0.1') }}"
+      user: "{{ env_var('TD_USER', 'dbc') }}"
+      password: "{{ env_var('TD_PASSWORD', 'dbc') }}"
+      schema: financial
+      tmode: ANSI
+      threads: 1

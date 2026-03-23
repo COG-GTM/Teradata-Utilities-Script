@@ -1,0 +1,26 @@
+version: 2
+
+sources:
+  - name: financial
+    schema: financial
+    tables:
+      - name: customer
+        description: >
+          Source customer table in the financial database. This is the original
+          table that the BTEQ Condbteq.bteq script reads from via
+          SELECT * FROM customer.
+        columns:
+          - name: cust_id
+            description: Unique customer identifier
+          - name: income
+            description: Customer income
+          - name: age
+            description: Customer age
+          - name: years_with_bank
+            description: Number of years the customer has been with the bank
+          - name: nbr_children
+            description: Number of children
+          - name: gender
+            description: "Customer gender (M or F)"
+          - name: marital_status
+            description: "Customer marital status (S, M, or D)"

@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: customer_aug18
+    description: >
+      Materialized table that replaces the BTEQ Condbteq.bteq idempotent
+      refresh pattern (DELETE -> CREATE -> INSERT). The dbt table
+      materialization handles dropping and recreating the table on each run.
+    columns:
+      - name: cust_id
+        description: Unique customer identifier
+        tests:
+          - unique
+          - not_null
+      - name: gender
+        description: "Customer gender (M or F)"
+        tests:
+          - accepted_values:
+              values: ['M', 'F']
+      - name: marital_status
+        description: "Customer marital status (S, M, or D)"
+        tests:
+          - accepted_values:
+              values: ['S', 'M', 'D']
