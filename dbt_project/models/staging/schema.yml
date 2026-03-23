@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: stg_customer_aug18
+    description: "Migrated from Condbteq.bteq - Replicates customer data into customer_aug18 table"
+    columns:
+      - name: cust_id
+        description: "Primary key - customer identifier"
+        tests:
+          - not_null
+          - unique
+      - name: gender
+        tests:
+          - accepted_values:
+              values: ['M', 'F']
+      - name: marital_status
+        tests:
+          - accepted_values:
+              values: ['S', 'M', 'D', 'W']
