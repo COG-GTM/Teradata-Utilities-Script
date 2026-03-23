@@ -1,0 +1,23 @@
+version: 2
+
+sources:
+  - name: financial
+    database: financial
+    tables:
+      - name: customer
+        description: "Source customer table containing customer demographic and banking data"
+        columns:
+          - name: cust_id
+            description: "Primary key - customer identifier"
+          - name: income
+            description: "Customer income"
+          - name: age
+            description: "Customer age"
+          - name: years_with_bank
+            description: "Number of years as a bank customer"
+          - name: nbr_children
+            description: "Number of children"
+          - name: gender
+            description: "Customer gender (single character)"
+          - name: marital_status
+            description: "Customer marital status (single character)"
